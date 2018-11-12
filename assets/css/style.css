@@ -9,7 +9,7 @@ background:#111;
 
 body {
     font-family: 'Roboto', 'Sans-Serif';
-    color:#ccc;
+    color:#fff;
     
 }
 .main-bg{
@@ -25,4 +25,15 @@ body {
 
 .container{
   
+}
+.gameMsg{
+   
+}
+.game-div{
+    background: rgba(76, 130, 175, 0.60);
+  
+}
+
+.opacity-end{
+    opacity: 100%;
 }
