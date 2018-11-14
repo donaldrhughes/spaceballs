@@ -37,6 +37,10 @@ body {
 .opacity-end{
     opacity: 100%;
 }
-.dotimg{
-    background: url('../images/dot.png') no-repeat center center fixed;
+.doll-square{
+    border:2px, solid, yellow;
+    background:black;
+}
+.dot{
+position: relative;
 }

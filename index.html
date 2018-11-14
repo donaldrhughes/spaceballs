@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
 
-    <title>Spaceballs - The RPG</title>
+    <title>Spaceballs - Battle</title>
 </head>
 
 
@@ -55,7 +55,7 @@
 
                 <div class="col">
                     <h5 class="text-light">
-                        <div class="head text-warning text-center border border-warning">The RPG!</div>
+                        <div class="head text-warning text-center border border-warning">Battle!</div>
                     </h5>
                 </div>
                 <div class="col">
@@ -87,26 +87,30 @@
                         <div class="row m-2">
 
                             <div class="col-sm-2">
-                                <div class="dot">
+                                
                                     <div class="row">Dot Matrix</div>
-                                    <div class="row ">
-                                        <div id="dot-img">Image</div>
+                                    <div class="row">
+                                        <div id="dot-img" class="dot">Image</div>
                                     </div>
-                                    <div class="row">-HP-</div>
+                                    <div class="row">
+                                        <div id="dot-hp"></div>
+
+                                    </div>
 
 
-
-                                </div>
+                                
                             </div>
 
                             <div class="col-sm-2">
                                 <div class="helmet">
 
-                                    <div class="row">Dark Helmet</div>
+                                    <div class="row">Helmet</div>
                                     <div class="row">
-                                        <div id="helmet-img">Image</div>
+                                        <div id="helmet-img" class="helmet">Image</div>
                                     </div>
-                                    <div class="row">-HP-</div>
+                                    <div class="row">
+                                        <div id="helmet-hp"></div>
+                                    </div>
 
 
                                 </div>
@@ -114,29 +118,42 @@
                             </div>
 
                             <div class="col-sm-2">
-                                <div id="barf-img" class="barf">
+                                <div class="barf">
 
                                     <div class="row">Barf</div>
-                                    <div class="row">Image</div>
-                                    <div class="row">-HP-</div>
+                                    <div class="row" id="barf-img">Image</div>
+                                    <div class="row">
+                                        <div id="barf-hp"></div>
+                                    </div>
                                 </div>
 
                             </div>
+
                             <div class="col-sm-2">
-                                <div id="lonestar-img" class="lonestar">
+                                <div class="lonestar">
 
                                     <div class="row">Lonestar</div>
-                                    <div class="row">Image</div>
-                                    <div class="row">-HP-</div>
+                                    <div class="row">
+                                        <div id="lonestar-img">Image</div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="lonestar-hp"></div>
+                                    </div>
                                 </div>
 
                             </div>
+
                             <div class="col-sm-2">
-                                <div id="vespa-img" class="vespa">
+                                <div class="vespa">
 
                                     <div class="row">Vespa</div>
-                                    <div class="row">Image</div>
-                                    <div class="row">-HP-</div>
+
+                                    <div class="row">
+                                        <div id="vespa-img">Image</div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="vespa-hp"></div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -204,7 +221,13 @@
 
                             </div>
 
+                        </div>
+                        <div class="row m-2">
+                            <div class="col text-center">
 
+                                <button id="playbtn" class="btn btn-primary">Play</button>
+
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -45,21 +45,21 @@ var vespa = {
 
 //Functions
 //===================================
-function show_image(src, width, height, alt) {
+function load_dolls(src, width, height, alt) {
     var img = document.createElement("img");
     img.src = src;
     img.width = width;
     img.height = height;
     img.alt = alt;
 
-    // This next line will just add it to the <body> tag
-    // document.body.appendChild(img);
+    // Add doll image to the corresponding id tag
+
     $("#dot-img").append(img);
     $("#helmet-img").append(img);
     $("#barf-img").append(img);
     $("#lonestar-img").append(img);
     $("#vespa-img").append(img);
-}
+};
 
 
 
@@ -67,24 +67,39 @@ function show_image(src, width, height, alt) {
 
 
 function startGame(){
-
+    showDolls();
 };
 
 
-
+function showHp(){
+    $("#dot-hp").text( dot.hp );
+    $("#lonestar-hp").text( lonestar.hp );
+    $("#helmet-hp").text( helmet.hp );
+    $("#vespa-hp").text( vespa.hp );
+    $("#barf-hp").text( barf.hp );
+}
 
 function moveDolls(){
     
-}
+};
+
+function showDolls(){
+    load_dolls("assets/images/dot.png", 50 , 50, dot.name);
+    load_dolls("assets/images/lonestar.png", 50 , 50, lonestar.name);
+    load_dolls("assets/images/helmet.png", 50, 50, helmet.name);
+    load_dolls("assets/images/vespa.png", 50 , 50, vespa.name);
+    load_dolls("assets/images/barf.png", 50 , 50, barf.name);
+};
 
 
 //Main
 //=====================================
-show_image("assets/images/dot.png", 50 , 50);
-show_image("assets/images/lonestar.png", 50 , 50);
-show_image("assets/images/helmet.png", 50, 50);
-show_image("assets/images/vespa.png", 50 , 50);
-show_image("assets/images/barf.png", 50 , 50);
+
+$("playbtn").on("click", startGame());
+showHp();
+
+
+
 
 
 
