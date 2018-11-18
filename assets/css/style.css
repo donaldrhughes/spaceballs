@@ -38,15 +38,18 @@ body {
     opacity: 100%;
 }
 .doll-square{
-    border:2px, solid, yellow;
-    background:black;
+   
+    
 }
 .dot{
 position: relative;
 }
-.clickableimage{
-    border: 2px dotted green;
-    background: tan;
-    margin:2px;
+.clickable{
+    
+   
 
+
+}
+.player{
+    background: rgba(76, 130, 175, 0.60);
 }
