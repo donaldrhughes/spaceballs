@@ -44,3 +44,9 @@ body {
 .dot{
 position: relative;
 }
+.clickableimage{
+    border: 2px dotted green;
+    background: tan;
+    margin:2px;
+
+}

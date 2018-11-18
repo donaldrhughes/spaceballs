@@ -1,64 +1,93 @@
 //Global Variables
 //==================================
 
-var dolls = ["dot", "helmet", "barf", "lonestar", "vespa"];
-var messages = ["No Sir! I did not see you playing with your dolls again!", "We Brake for No One",];
-var dot = {
-    name:"Dot Matrix",
-    hp:"75",
-    ap:"2",
-    cap:"8",
-    
-};
-var helmet = {
-    name:"Dark Helmet",
-    hp:"100",
-    ap:"6",
-    cap:"2",
-    
-};
-var barf = {
-    name:"Barf",
-    hp:"120",
-    ap:"5",
-    cap:"2",
-    
-};
-var lonestar = {
-    name:"Lonestar",
-    hp:"80",
-    ap:"5",
-    cap:"5",
-    
-};
-var vespa = {
-    name:"Princess Vespa",
-    hp:"85",
-    ap:"3",
-    cap:"6",
-    
-};
+
+var dollsImg;
+var messages = ["No Sir! I did not see you playing with your dolls again!", "We Brake for No One", "Comb the desert!"];
 
 
+var spaceballs = [
+    {
+        name: "Barf",
+        hp: 75,
+        ap: 2,
+        cap: 8,
+        src: "assets/images/barf.png",
+        width: 50,
+        height: 50
+    },
+    {
+        name: "Dark Helmet",
+        hp: 100,
+        ap: 6,
+        cap: 2,
+        src: "assets/images/helmet.png",
+        width: 50,
+        height: 50
+    },
+    {
+        name: "Dot Matrix",
+        hp: 120,
+        ap: 5,
+        cap: 2,
+        src: "assets/images/dot.png",
+        width: 50,
+        height: 60,
+    },
+    {
+        name: "Lonestar",
+        hp: 80,
+        ap: 5,
+        cap: 5,
+        src: "assets/images/lonestar.png",
+        width: 50,
+        height: 50
+    },
+    {
+        name: "Princess Vespa",
+        hp: 85,
+        ap: 3,
+        cap: 6,
+        src: "assets/images/vespa.png",
+        width: 50,
+        height: 50
+    }
+];
 
 
 
 //Functions
 //===================================
-function load_dolls(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
+function load_dolls() {
 
-    // Add doll image to the corresponding id tag
+    spaceballs.forEach(function (elem, i) {
+        console.log(elem);
+        dollsImg = $("<img>");
+        dollsImg.addClass("img-fluid clickableimage");
+        dollsImg.attr("src", elem.src);
+        dollsImg.attr("width", elem.width);
+        dollsImg.attr("height", elem.height);
 
-    $("#dot-img").append(img);
-    $("#helmet-img").append(img);
-    $("#barf-img").append(img);
-    $("#lonestar-img").append(img);
-    $("#vespa-img").append(img);
+        $("#img" + i).append(dollsImg);
+
+        // $("<div class='hp'> Hit Points>").append(dollsImg);
+
+        
+        // dollsImg.append("<div class='hp'> Hit Points");
+        // dollsHP = $("<div>");
+        // dollsHP.text("HP");
+        // dollsHP.attr("hp", elem.hp);
+
+
+
+    });
+
+
+
+    $('.clickableimage').click(function () {
+        $(this).attr("hp", elem.hp);
+    })
+
 };
 
 
@@ -66,41 +95,36 @@ function load_dolls(src, width, height, alt) {
 
 
 
-function startGame(){
+function startGame() {
     showDolls();
+
 };
 
 
-function showHp(){
-    $("#dot-hp").text( dot.hp );
-    $("#lonestar-hp").text( lonestar.hp );
-    $("#helmet-hp").text( helmet.hp );
-    $("#vespa-hp").text( vespa.hp );
-    $("#barf-hp").text( barf.hp );
+
+
+function moveDolls() {
+
+};
+
+function showDolls() {
+
+    load_dolls();
+
+
+
+};
+
+function reset() {
+
 }
-
-function moveDolls(){
-    
-};
-
-function showDolls(){
-    load_dolls("assets/images/dot.png", 50 , 50, dot.name);
-    load_dolls("assets/images/lonestar.png", 50 , 50, lonestar.name);
-    load_dolls("assets/images/helmet.png", 50, 50, helmet.name);
-    load_dolls("assets/images/vespa.png", 50 , 50, vespa.name);
-    load_dolls("assets/images/barf.png", 50 , 50, barf.name);
-};
-
 
 //Main
 //=====================================
 
-$("playbtn").on("click", startGame());
-showHp();
 
 
-
-
-
+$('#playbtn').click(startGame);
+$('#restart').click(reset);
 
 
