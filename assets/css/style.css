@@ -70,7 +70,7 @@ font-weight: bold;
 
 .clickable{
     margin:0 auto;
-
+    line-height:  
 }
 .player{
   
@@ -82,24 +82,30 @@ font-weight: bold;
 #hp0{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
 #hp1{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
 #hp2{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
 #hp3{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
 #hp4{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
 #hp5{
     color:Green;
     font-weight: bold;
+    background:#333a41;
 }
