@@ -27,29 +27,79 @@ body {
   
 }
 .gameMsg{
-   
+   font-size:20px;
+   font-family: 'Black Han Sans';
+
 }
 .game-div{
     background: rgba(76, 130, 175, 0.60);
-  
+  margin-right:1%;
 }
 
 .opacity-end{
     opacity: 100%;
 }
 .doll-square{
-   
     
 }
 .dot{
-position: relative;
+color:goldenrod;
+font-weight: bold;
 }
-.clickable{
-    
-   
 
+.helmet{
+color:black;
+font-weight: bold;
+}
+
+.lonestar{
+    color:khaki;
+    font-weight: bold;
+    
+}
+.barf{
+    color:brown;
+    font-weight: bold;
+    
+}
+
+.vespa{
+    color:whitesmoke;
+    font-weight: bold;
+}
+
+.clickable{
+    margin:0 auto;
 
 }
 .player{
-    background: rgba(76, 130, 175, 0.60);
+  
+
+}
+.player-div{
+    height:25%;
+}
+#hp0{
+    color:Green;
+    font-weight: bold;
+}
+#hp1{
+    color:Green;
+    font-weight: bold;
+}
+#hp2{
+    color:Green;
+    font-weight: bold;
+}
+#hp3{
+    color:Green;
+    font-weight: bold;
+}
+#hp4{
+    color:Green;
+    font-weight: bold;
+}
+#hp5{
+    color:Green;
+    font-weight: bold;
 }

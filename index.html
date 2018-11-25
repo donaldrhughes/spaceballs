@@ -15,11 +15,11 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 
 
-    <title>Spaceballs - The Battle</title>
+    <title>Spaceballs - The Doll Battle</title>
 </head>
 
 
@@ -57,12 +57,10 @@
 
                 <div class="col">
                     <h5 class="text-light">
-                        <div class="head text-warning text-center border border-warning">The Battle!</div>
+                        <div class="head text-warning text-center border border-warning">The Doll Battle!</div>
                     </h5>
                 </div>
-                <div class="col">
-                    <div id="player" class="player">Player</div>
-                </div>
+
             </div>
 
 
@@ -71,34 +69,60 @@
             <!-- This is where the game window begins -->
             <!-- ==================================== -->
 
+            <div class="container-fluid">
 
-
-            <div class="row m-1">
-                <div class="col-xs-12 text-justify border border-dark game-div">
+                <div class="row m-1 game-div">
+                    <!-- <div class="col text-justify border border-dark game-div"> -->
 
                     <div class="opacity-end">
-
+                        <div class="row">
+                            <div class="col">
+                                <div id="player" class="container-fluid player m-1"></div>
+                            </div>
+                        </div>
                         <div class="row m-1">
 
                             <div class="col">
 
-                                <div class="row">
-                                    <div id="name1" class="name1"></div>
-                                </div>
-                                <div class="row">
-                                    <div id="img1" class="dot"></div>
-                                </div>
-                                <div class="row">
-                                    <div id="hp1"></div>
+                                <div id="doll0" class="clickable">
+                                    <div class="barf">
+                                        <div class="row">
+                                            <div id="name0" class="name0"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="img0" class="barf"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="hp0"></div>
 
+                                        </div>
+                                    </div>
                                 </div>
 
+
+                            </div>
+                            <div class="col">
+
+                                <div id="doll1" class="clickable">
+                                    <div class="helmet">
+                                        <div class="row">
+                                            <div id="name1" class="name1"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="img1" class="helmet"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="hp1"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div>
 
                             <div class="col">
-                                <div class="doll-square">
+                                <div id="doll2" class="clickable">
                                     <div class="dot">
 
                                         <div class="row">
@@ -119,7 +143,7 @@
 
 
                             <div class="col">
-                                <div class="doll-square">
+                                <div id="doll3" class="clickable">
                                     <div class="lonestar">
 
                                         <div class="row">
@@ -137,7 +161,7 @@
                             </div>
 
                             <div class="col">
-                                <div class="doll-square">
+                                <div id="doll4" class="clickable">
                                     <div class="vespa">
 
                                         <div class="row">
@@ -161,62 +185,56 @@
                         </div>
 
 
+
                         <!-- <div class="row m-2">
-                            <div class="col-xs-8">
-                                <div class="yourDoll">Your Doll</div>
+                            <div class="col">
+                                <div id="fight-area" class="fight">
+                                    Enemy Dolls Ready to Fight</div>
                             </div>
-                            <div class="col-xs-4"></div>
 
                         </div> -->
 
-
-
-                        <div class="row m-2">
-                            <div class="col">Enemy Dolls Ready to Fight</div>
-
-                        </div>
-
-                        <div class="row m-2">
+                        <!-- <div class="row m-2">
                             <div class="col">
 
                                 <div class="enemyDoll text-center">----Available Enemy Dolls goes here---</div>
                             </div>
 
 
-                        </div>
+                        </div> -->
 
                         <div class="row m-2">
-                            <div class="col">
+                            <!-- <div class="col">
                                 <h3>Battle Section</h3>
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <div class="row m-2">
                             <div class="col text-center">
 
-                                <button class="btn btn-danger">Attack</button>
+                                <button id="atk-btn" class="btn btn-danger">Attack</button>
 
                             </div>
                         </div>
 
-                        <div class="row m-2">
-                            <div class="col">Defender</div>
+                        <!-- <div class="row m-2"> -->
+                            <!-- <div class="col">Defender</div>
 
 
-                        </div>
+                        </div> -->
 
 
 
-                        <div class="row m-2">
+                        <!-- <div class="row m-2">
                             <div class="col-sm-7 text-center"></div>
 
                             <div class="col-sm-5 text-center">---Defender Doll Goes Here------</div>
-                        </div>
+                        </div> -->
 
                         <div class="row m-2">
                             <div class="col bg-dark">
-                                <div class="gameMsg">></div>
+                                <div id="gameMsg" class="gameMsg">></div>
 
 
                             </div>
@@ -225,7 +243,7 @@
                         <div class="row m-2">
                             <div class="col text-center">
 
-                                <button class="btn btn-success">Restart</button>
+                                <button id="resetbtn" class="btn btn-success">Reset</button>
 
                             </div>
 
@@ -238,26 +256,29 @@
                             </div>
                         </div>
                     </div>
+                    <!-- </div> -->
+
+                    <!-- <div class="col md-2 text-justify border border-dark game-div player-div m-0">
+
+                </div> -->
+
+                    <!-- Game Window End Below-->
+                    <!-- ========================================-->
                 </div>
 
 
-                <!-- Game Window End Below-->
+
+                <!-- Main Container End Below-->
                 <!-- ========================================-->
+
+
+
             </div>
 
 
-
-            <!-- Main Container End Below-->
+            <!-- Background Image End Below-->
             <!-- ========================================-->
-
-
-
         </div>
-
-
-        <!-- Background Image End Below-->
-        <!-- ========================================-->
-
     </div>
 
 
