@@ -2,8 +2,8 @@
 //==================================
 
 
-var messages = ["There's only one man who would dare give me the raspberry: Lonestarr!","What's the matter, Colonel Sandurz? Chicken?","It's the radar. It appears to be... Jammed.","No Sir! I did not see you playing with your dolls again!", "We Brake for No One.", "Comb the desert!", "Ludicrous Speed", "What?! You went over my helmet?", "You have the ring, and I see your Schwartz is as big as mine. Now let’s see how well you handle it.", "I’ve lost the bleeps, I’ve lost the sweeps, and I’ve lost the creeps. That's not all he's lost!", "Who knows? God willing, we’ll all meet again in Spaceballs 2: The Search for More Money.", "My Brains are going into my feet!", "It's Spaceball One -- They've gone to plaid...", "That's the stupidest combination I've ever heard of in my life! That's the kinda thing an idiot would have on his luggage!"];
-var message = messages[Math.floor(Math.random()*messages.length)];
+var messages = ["There's only one man who would dare give me the raspberry: Lonestarr!", "What's the matter, Colonel Sandurz? Chicken?", "It's the radar. It appears to be... Jammed.", "No Sir! I did not see you playing with your dolls again!", "We Brake for No One.", "Comb the desert!", "Ludicrous Speed", "What?! You went over my helmet?", "You have the ring, and I see your Schwartz is as big as mine. Now let’s see how well you handle it.", "I’ve lost the bleeps, I’ve lost the sweeps, and I’ve lost the creeps. That's not all he's lost!", "Who knows? God willing, we’ll all meet again in Spaceballs 2: The Search for More Money.", "My Brains are going into my feet!", "It's Spaceball One -- They've gone to plaid...", "That's the stupidest combination I've ever heard of in my life! That's the kinda thing an idiot would have on his luggage!"];
+var message = messages[Math.floor(Math.random() * messages.length)];
 var player = [
     {
         name: "Player",
@@ -130,11 +130,11 @@ function load_dolls() {
                 player[0].width = spaceballs[i].width;
                 player[0].height = spaceballs[i].height;
 
-
+console.log(player);
 
                 $('#atk-btn').show();
                 message = "<<< Click Attack to Fight >>>";
-    $('#gameMsg').text("message");
+                $('#gameMsg').text(message);
             })
 
 
@@ -177,7 +177,7 @@ function reset() {
         $('#hp' + spaceballs[i].dollnum).empty();
         $('#name' + spaceballs[i].dollnum).empty();
         $('#player').empty();
-        message = messages[Math.floor(Math.random()*messages.length)];
+        message = messages[Math.floor(Math.random() * messages.length)];
         $('#gameMsg').text(message);
         $('#atk-btn').hide();
     };
@@ -189,8 +189,22 @@ function reset() {
 }
 
 function battle() {
+    // spaceballs[i].hp = spaceballs[i]
+    for (i = 0; i < spaceballs.length; i++) {
+       
+        if (spaceballs[i].isPlayer == true) {
+            spaceballs.splice([i]);
+            console.log(spaceballs);
+        }
+
+    }
+
+
+//Debug
+ console.log(spaceballs);
     console.log(player);
-    console.log("clicked");
+   
+   
 }
 
 //Main
@@ -200,4 +214,4 @@ $('#playbtn').click(startGame);
 $('#resetbtn').hide();
 $('#atk-btn').hide();
 $('#gameMsg').text(message)
- 
+
