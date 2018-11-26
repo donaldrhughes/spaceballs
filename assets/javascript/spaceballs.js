@@ -25,9 +25,9 @@ var spaceballs = [
         dollnum: "",
         isPlayer: false,
         name: "Barf",
-        hp: 75,
-        ap: 50,
-        cap: 8,
+        hp: 100,
+        ap: 4,
+        cap: 4,
         src: "assets/images/barf.png",
         width: 50,
         height: 50
@@ -37,9 +37,9 @@ var spaceballs = [
         dollnum: "",
         isPlayer: false,
         name: "Dark Helmet",
-        hp: 100,
-        ap: 6,
-        cap: 2,
+        hp: 75,
+        ap: 5,
+        cap: 4,
         src: "assets/images/helmet.png",
         width: 50,
         height: 50
@@ -49,9 +49,9 @@ var spaceballs = [
         dollnum: "",
         isPlayer: false,
         name: "Dot Matrix",
-        hp: 120,
-        ap: 5,
-        cap: 2,
+        hp: 70,
+        ap: 2,
+        cap: 6,
         src: "assets/images/dot.png",
         width: 50,
         height: 60
@@ -63,7 +63,7 @@ var spaceballs = [
         name: "Lonestarr",
         hp: 80,
         ap: 5,
-        cap: 5,
+        cap: 3,
         src: "assets/images/lonestar.png",
         width: 50,
         height: 50
@@ -74,8 +74,8 @@ var spaceballs = [
         isPlayer: false,
         name: "Princess Vespa",
         hp: 85,
-        ap: 3,
-        cap: 6,
+        ap: 5,
+        cap: 3,
         src: "assets/images/vespa.png",
         width: 50,
         height: 50
@@ -206,6 +206,7 @@ function battle() {
    
 
     spaceballs[0].hp -= player[0].ap;
+    $("#hp0").text(spaceballs[0].hp);
     console.log(spaceballs.dollnum);
     if(spaceballs[0].hp <= 0){
         spaceballs.splice([0], 1);
