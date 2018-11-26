@@ -26,7 +26,7 @@ var spaceballs = [
         isPlayer: false,
         name: "Barf",
         hp: 75,
-        ap: 2,
+        ap: 50,
         cap: 8,
         src: "assets/images/barf.png",
         width: 50,
@@ -92,7 +92,6 @@ function load_dolls() {
         console.log(elem);
         var dollNum = ('doll' + i);
         spaceballs[i].dollnum = i;
-        console.log(spaceballs[i].dollnum);
 
         //Loads the Dolls images
         dollsImg = $("<img>");
@@ -117,11 +116,12 @@ function load_dolls() {
 
 
 
-        $("#doll" + i).click(
+        $("#doll" + i).on("click",
             function () {
+                
                 $("#doll" + i).prependTo('#player');
-                spaceballs[i].isPlayer == true;
-
+                spaceballs[i].isPlayer = true;
+                player[0].name = spaceballs[i].name;
                 player[0].doll = spaceballs[i].doll;
                 player[0].hp = spaceballs[i].hp;
                 player[0].ap = spaceballs[i].ap;
@@ -130,17 +130,28 @@ function load_dolls() {
                 player[0].width = spaceballs[i].width;
                 player[0].height = spaceballs[i].height;
 
-console.log(player);
+
 
                 $('#atk-btn').show();
+                $('#atk-btn').click(battle);
                 message = "<<< Click Attack to Fight >>>";
                 $('#gameMsg').text(message);
+                $("#doll0").off();
+                $("#doll1").off();
+                $("#doll2").off();
+                $("#doll3").off();
+                $("#doll4").off();
+                $("#doll5").off();
+                spaceballs.splice([i], 1);
+             
+
+                
             })
 
 
     });
 
-    console.log(spaceballs);
+    
 
 
 };
@@ -157,8 +168,8 @@ function startGame() {
     var dollsHP = 0;
 
     load_dolls();
-    $('#atk-btn').show();
-    $('#atk-btn').click(battle);
+    
+    
 };
 
 
@@ -176,6 +187,9 @@ function reset() {
         $('#img' + spaceballs[i].dollnum).empty();
         $('#hp' + spaceballs[i].dollnum).empty();
         $('#name' + spaceballs[i].dollnum).empty();
+        $('#img' + spaceballs[i].dollnum).show();
+        $('#hp' + spaceballs[i].dollnum).show();
+        $('#name' + spaceballs[i].dollnum).show();
         $('#player').empty();
         message = messages[Math.floor(Math.random() * messages.length)];
         $('#gameMsg').text(message);
@@ -189,21 +203,19 @@ function reset() {
 }
 
 function battle() {
-    // spaceballs[i].hp = spaceballs[i]
-    for (i = 0; i < spaceballs.length; i++) {
-       
-        if (spaceballs[i].isPlayer == true) {
-            spaceballs.splice([i]);
-            console.log(spaceballs);
-        }
-
-    }
-
-
-//Debug
- console.log(spaceballs);
-    console.log(player);
    
+
+    spaceballs[0].hp -= player[0].ap;
+    console.log(spaceballs.dollnum);
+    if(spaceballs[0].hp <= 0){
+        spaceballs.splice([0], 1);
+        $('#img' + spaceballs[0].dollnum).hide();
+        $('#hp' + spaceballs[0].dollnum).hide();
+        $('#name' + spaceballs[0].dollnum).hide();
+    }
+    //Debug
+    console.log(player);
+    console.log(spaceballs);
    
 }
 
