@@ -4,9 +4,11 @@
 
 var messages = ["There's only one man who would dare give me the raspberry: Lonestarr!", "What's the matter, Colonel Sandurz? Chicken?", "It's the radar. It appears to be... Jammed.", "No Sir! I did not see you playing with your dolls again!", "We Brake for No One.", "Comb the desert!", "Ludicrous Speed", "What?! You went over my helmet?", "You have the ring, and I see your Schwartz is as big as mine. Now let’s see how well you handle it.", "I’ve lost the bleeps, I’ve lost the sweeps, and I’ve lost the creeps. That's not all he's lost!", "Who knows? God willing, we’ll all meet again in Spaceballs 2: The Search for More Money.", "My Brains are going into my feet!", "It's Spaceball One -- They've gone to plaid...", "That's the stupidest combination I've ever heard of in my life! That's the kinda thing an idiot would have on his luggage!"];
 var message = messages[Math.floor(Math.random() * messages.length)];
+var enemy;
 var player = [
     {
         name: "Player",
+        dollnum: "",
         hp: 0,
         ap: 0,
         cap: 0,
@@ -86,12 +88,13 @@ var spaceballs = [
 //Functions
 //===================================
 function load_dolls() {
-
+    
     spaceballs.forEach(function (elem, i) {
-
-        console.log(elem);
+       
+       
         var dollNum = ('doll' + i);
         spaceballs[i].dollnum = i;
+        
 
         //Loads the Dolls images
         dollsImg = $("<img>");
@@ -113,12 +116,12 @@ function load_dolls() {
         dollsName.text(elem.name);
         dollsName.attr("name", elem.name);
         $("#name" + i).append(dollsName);
-
-
+        
+        
 
         $("#doll" + i).on("click",
             function () {
-                
+                console.log(spaceballs);
                 $("#doll" + i).prependTo('#player');
                 spaceballs[i].isPlayer = true;
                 player[0].name = spaceballs[i].name;
@@ -129,6 +132,7 @@ function load_dolls() {
                 player[0].src = spaceballs[i].src;
                 player[0].width = spaceballs[i].width;
                 player[0].height = spaceballs[i].height;
+                player[0].dollnum = spaceballs[i].dollnum;
 
 
 
@@ -142,9 +146,23 @@ function load_dolls() {
                 $("#doll3").off();
                 $("#doll4").off();
                 $("#doll5").off();
+                
                 spaceballs.splice([i], 1);
-             
+                enemy = spaceballs[Math.floor(Math.random() * spaceballs.length)];
+                $("#doll" + enemy.dollnum).prependTo('#enemyDoll');
 
+
+                    //Remove non combat dolls
+                spaceballs.splice([enemy.dollnum], 1);
+                console.log(spaceballs);
+                // spaceballs.forEach(function(elem2, j){
+                //     $("#doll" + j).hide();
+                // })
+
+                console.log(player[0]);
+                console.log(enemy);
+                
+                
                 
             })
 
@@ -204,19 +222,22 @@ function reset() {
 
 function battle() {
    
-
-    spaceballs[0].hp -= player[0].ap;
-    $("#hp0").text(spaceballs[0].hp);
-    console.log(spaceballs.dollnum);
-    if(spaceballs[0].hp <= 0){
-        spaceballs.splice([0], 1);
-        $('#img' + spaceballs[0].dollnum).hide();
-        $('#hp' + spaceballs[0].dollnum).hide();
-        $('#name' + spaceballs[0].dollnum).hide();
+   enemy.hp -= player[0].ap;
+   player[0].hp -= enemy.cap;
+   console.log(player[0]);
+   console.log(enemy);
+    $("#hp" + player[0].dollnum).text(player[0].hp);
+    $("#hp" + enemy.dollnum).text(enemy.hp);
+   
+    if(player[0].hp <= 0){
+       alert("you lose")
     }
+
+    if(enemy.hp <= 0){
+        alert("you win")
+     }
     //Debug
-    console.log(player);
-    console.log(spaceballs);
+  
    
 }
 
